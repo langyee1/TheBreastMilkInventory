@@ -1,46 +1,47 @@
 import { useNavigation } from "@react-navigation/native";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import MilkList from "../components/milk-list";
 
 
 const HomeScreen = () => {
     const navigation = useNavigation()
     return (
-        <View style={StyleSheet.screen}>
+        <View style={styles.screen}>
             <Text>This is the home screen</Text>
-            <Button style={StyleSheet.btncontainer} title="Register Milk Unit" onPress={()=> navigation.navigate('Register milk unit')}></Button>     
-            <Button style={StyleSheet.btncontainer} title="Read Milk unit" onPress={()=> navigation.navigate('Read milk unit')}></Button>
-            <Button style={StyleSheet.btncontainer} title="Modify Milk unit" onPress={()=> navigation.navigate('Modify milk unit')}></Button>     
-            <Button style={StyleSheet.btncontainer} title="Stats" onPress={()=> navigation.navigate('Stats')}></Button>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register milk unit')}>
+                <Text style={styles.buttonText}>Register Milk Unit</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Read milk unit')}>
+                <Text style={styles.buttonText}>Read Milk Unit</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Modify milk unit')}>
+                <Text style={styles.buttonText}>Modify Milk Unit</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Stats')}>
+                <Text style={styles.buttonText}>Stats</Text>
+            </TouchableOpacity>
         </View>
-
     );
 }
 
 const styles = StyleSheet.create({
     screen: {
-        padding:20,
-    },
-    btncontainer: {
-        flexDirection: 'row',
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FFC72C', // Medela brand's yellow color
-        borderRadius: 8,
-        paddingVertical: 12,
-        paddingHorizontal: 16,
-        elevation: 2, // For Android shadow
-        shadowColor: '#000000', // For iOS shadow
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 4,
+    },
+    button: {
+        backgroundColor: 'yellow',
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 5,
     },
     buttonText: {
-        color: '#FFFFFF', // White text color for better contrast
         fontSize: 16,
         fontWeight: 'bold',
-        marginRight: 8,
+        color: 'black',
+        textAlign: 'center',
     },
-})
+});
 
 export default HomeScreen;

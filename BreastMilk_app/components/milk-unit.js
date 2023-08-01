@@ -1,12 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const MilkUnit = ({id,date,time,amount,container,type,cad}) => {
+const MilkUnit = ({id,timestamp,amount,container,type,cad}) => {
     const navigation = useNavigation()
     return (
-        <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate("Modify milk unit",{unitId: id, date, container})}>
-            <Text>{date}</Text>
-            <Text>{time}</Text>
+        <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate("Modify milk unit",{unitId: id, timestamp, container})}>
+            <Text>{timestamp}</Text>
             <Text>{amount}</Text>
             <Text>{container}</Text>
             <Text>{type}</Text>
