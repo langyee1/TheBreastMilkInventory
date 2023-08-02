@@ -1,23 +1,125 @@
-import { useRoute } from "@react-navigation/native";
-import { StyleSheet, Text, View } from "react-native";
-
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
+import axios from "axios";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const ModifyMilkScreen = () => {
-    const route = useRoute()
-    const {unitId,timestamp,container} = route.params
+    const [unitId, setUnitId] = useState("");
+    const [milkData, setMilkData] = useState(null);
+    const [formData, setFormData] = useState({
+        timestamp: "",
+        container: "",
+        type: "",
+        cad: "",
+    });
+
+    const fetchMilkData = async () => {
+        try {
+        const response = await axios.get(`http://127.0.0.1:5000/milks/${unitId}`);
+        
+        if (response.status === 200) {
+            setMilkData(response.data);
+            setFormData(response.data); 
+        } else {
+            Alert.alert("Error", "Failed to fetch milk data.");
+        }
+        } catch (error) {
+        Alert.alert("Error", "An error occurred while fetching milk data.");
+        }
+    };
+
+    const handleFetchData = () => {
+        if (unitId.trim() === "") {
+        Alert.alert("Error", "Please enter a valid unit ID.");
+        return;
+        }
+
+        fetchMilkData();
+    };
+
+    const handleRefreshData = async () => {
+        try {
+        const response = await axios.put(`http://127.0.0.1:5000/milks/${unitId}`, formData);
+
+        if (response.status === 200) {
+            Alert.alert("Success", "Milk data updated successfully!");
+        } else {
+            Alert.alert("Error", "Failed to update milk data.");
+        }
+        } catch (error) {
+        Alert.alert("Error", "An error occurred while updating milk data.");
+        }
+    };
+
     return (
-        <View style={StyleSheet.screen}>
-            <Text style={{fontSize:20}}>This is the modify milk screen for {unitId}</Text>
-            <Text style={{fontSize:20}}>its date is {timestamp}</Text>
-            <Text style={{fontSize:20}}>stored in {container}</Text>
+        <View style={styles.screen}>
+        <Text>This is the Modify Milk Screen</Text>
+        <TextInput
+            style={styles.input}
+            value={unitId}
+            onChangeText={(text) => setUnitId(text)}
+            placeholder="Enter Unit ID"
+        />
+        <TouchableOpacity style={styles.button} onPress={handleFetchData}>
+            <Text style={styles.buttonText}>Get Milk Information</Text>
+        </TouchableOpacity>
+
+        {milkData && (
+            <View>
+            {/* Display the form with default values */}
+            <Text>Unit ID: {milkData.id}</Text>
+            <Text>Timestamp: {milkData.timestamp}</Text>
+            <TextInput
+                style={styles.input}
+                value={formData.container}
+                onChangeText={(text) => setFormData({ ...formData, container: text })}
+                placeholder="Enter Container"
+            />
+            <TextInput
+                style={styles.input}
+                value={formData.type}
+                onChangeText={(text) => setFormData({ ...formData, type: text })}
+                placeholder="Enter Type"
+            />
+            <TextInput
+                style={styles.input}
+                value={formData.cad}
+                onChangeText={(text) => setFormData({ ...formData, cad: text })}
+                placeholder="Enter Cad"
+            />
+            <TouchableOpacity style={styles.button} onPress={handleRefreshData}>
+                <Text style={styles.buttonText}>Refresh Data</Text>
+            </TouchableOpacity>
+            </View>
+        )}
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     screen: {
-        padding:20,
-    }
-})
+        padding: 20,
+    },
+    input: {
+        height: 40,
+        borderColor: "gray",
+        borderWidth: 1,
+        marginBottom: 10,
+        padding: 10,
+    },
+    button: {
+        backgroundColor: "#FDDC57",
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 10,
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "#2d2d2d",
+        textAlign: "center",
+    },
+});
 
 export default ModifyMilkScreen;
+

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     button: {
-        backgroundColor: 'yellow',
+        backgroundColor:  "#FDDC57",
         borderRadius: 10,
         padding: 10,
         marginVertical: 5,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: 'black',
+        color: '#2d2d2d',
         textAlign: 'center',
     },
 });

@@ -14,7 +14,7 @@ const StatsScreen = () => {
 
 const styles = StyleSheet.create({
     screen: {
-        padding:20,
+        padding:10,
     }
 })
 

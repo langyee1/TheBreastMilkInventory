@@ -5,6 +5,7 @@ const MilkUnit = ({id,timestamp,amount,container,type,cad}) => {
     const navigation = useNavigation()
     return (
         <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate("Modify milk unit",{unitId: id, timestamp, container})}>
+            <Text>{id}</Text>
             <Text>{timestamp}</Text>
             <Text>{amount}</Text>
             <Text>{container}</Text>
@@ -16,11 +17,11 @@ const MilkUnit = ({id,timestamp,amount,container,type,cad}) => {
 
 const styles = StyleSheet.create({
     card: {
-        borderWidth: 20,
-        borderColor: 'black',
+        borderWidth: 2,
+        borderColor: "lightyellow",
         borderRadius: 10,
         marginVertical: 5,
-        padding: 30,
+        padding: 10,
     },
 })
 

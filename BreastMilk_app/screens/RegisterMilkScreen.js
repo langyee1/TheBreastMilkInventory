@@ -11,7 +11,6 @@ const RegisterMilkScreen = () => {
     const [responseText, setResponseText] = useState("");
 
     const handleRegisterMilk = () => {
-        // Construct the request body
         const newMilkUnit = {
         timestamp: timestamp,
         amount: amount,
@@ -20,10 +19,8 @@ const RegisterMilkScreen = () => {
         cad: cad,
     };
 
-    // Make a POST request to your backend API using Axios
     axios.post("http://127.0.0.1:5000/milks", newMilkUnit)
         .then((response) => {
-            // Handle the response from the backend if needed
             setResponseText(`Server Response: ${response.data.message}`);
         })
         .catch((error) => {
@@ -84,7 +81,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     button: {
-        backgroundColor: "yellow",
+        backgroundColor: "#FDDC57",
         borderRadius: 10,
         padding: 10,
         marginVertical: 10,
@@ -92,7 +89,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 16,
         fontWeight: "bold",
-        color: "black",
+        color: '#2d2d2d',
         textAlign: "center",
     },
 });
