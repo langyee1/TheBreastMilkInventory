@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 const MilkUnit = ({id,timestamp,amount,container,type,cad}) => {
     const navigation = useNavigation()
     return (
-        <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate("Modify milk unit",{unitId: id, timestamp, container})}>
+        <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate("Modify milk unit",{unitId: id, container})}>
             <Text>{id}</Text>
             <Text>{timestamp}</Text>
             <Text>{amount}</Text>

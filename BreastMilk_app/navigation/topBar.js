@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context'; // Import SafeAreaView
+import { SafeAreaView } from 'react-native-safe-area-context'; 
 
 const TopBar = () => {
     const navigation = useNavigation();
@@ -36,12 +36,7 @@ const TopBar = () => {
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 10,
-        // Add other styling as needed
-    },
-    logoText: {
-        color: '#2d2d2d',
-        fontSize: 32,
+        padding: 5,
     },
 });
 

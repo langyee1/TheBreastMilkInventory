@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Text } from 'react-native';
+//import { Text } from 'react-native';
 
 export const navOptions = (nav) => {
     return {

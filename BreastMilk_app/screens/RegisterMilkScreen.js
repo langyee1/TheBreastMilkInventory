@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {Picker} from '@react-native-picker/picker';
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import {HeaderBackButton} from "@react-navigation/elements";
@@ -10,7 +11,8 @@ const RegisterMilkScreen = () => {
     const [amount, setAmount] = useState("");
     const [container, setContainer] = useState("");
     const [type, setType] = useState("");
-    const [cad, setCad] = useState("");
+    //const [cad, setCad] = useState("");
+    const containerOptions = ["Countertop", "Refrigerator", "Freezer"];
     const [responseText, setResponseText] = useState("");
 
     const navigation = useNavigation()
@@ -24,13 +26,26 @@ const RegisterMilkScreen = () => {
     })
 
     const handleRegisterMilk = () => {
+        const currentTimestamp = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+        let defaultCad = "";
+        console.log(container)
+        if (container.toLowerCase() === "freezer") {
+            defaultCad = "180";
+        } else if (container.toLowerCase() === "refrigerator") {
+            defaultCad = "3";
+        } else if (container.toLowerCase() === "countertop") {
+            defaultCad = "1";
+        }
+
+        
         const newMilkUnit = {
-        timestamp: timestamp,
-        amount: amount,
-        container: container,
-        type: type,
-        cad: cad,
-    };
+            timestamp: currentTimestamp,
+            amount: amount,
+            container: container,
+            type: type,
+            cad: defaultCad !== "" ? defaultCad : "", 
+        };
 
     axios.post("http://127.0.0.1:5000/milks", newMilkUnit)
         .then((response) => {
@@ -46,33 +61,27 @@ const RegisterMilkScreen = () => {
         <Text>This is the register milk screen</Text>
         <TextInput
             style={styles.input}
-            placeholder="Timestamp"
-            value={timestamp}
-            onChangeText={setTimestamp}
-        />
-        <TextInput
-            style={styles.input}
             placeholder="Amount"
             value={amount}
             onChangeText={setAmount}
         />
-        <TextInput
-            style={styles.input}
-            placeholder="Container"
-            value={container}
-            onChangeText={setContainer}
-        />
+        <View style={styles.pickerContainer}>
+            <Text style={styles.pickerLabel}>Container:</Text>
+            <Picker
+            selectedValue={container}
+            onValueChange={(itemValue) => setContainer(itemValue)}
+            style={styles.picker}
+            >
+            {containerOptions.map((option) => (
+                <Picker.Item key={option} label={option} value={option} />
+            ))}
+            </Picker>
+        </View>
         <TextInput
             style={styles.input}
             placeholder="Type"
             value={type}
             onChangeText={setType}
-        />
-        <TextInput
-            style={styles.input}
-            placeholder="CAD"
-            value={cad}
-            onChangeText={setCad}
         />
         <TouchableOpacity style={styles.button} onPress={handleRegisterMilk}>
             <Text style={styles.buttonText}>Register Milk Unit</Text>
