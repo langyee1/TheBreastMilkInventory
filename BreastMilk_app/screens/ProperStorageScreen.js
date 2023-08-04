@@ -8,7 +8,7 @@ const ProperStorageScreen = () => {
     return (
         <View style={styles.screen}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.homeButton}>Home</Text>
+            <Text style={styles.homeButton}>Back</Text>
         </TouchableOpacity>
         <Text>This is the milk storage suggestions screen</Text>
         </View>

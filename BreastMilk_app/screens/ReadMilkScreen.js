@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
 import axios from "axios";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+import {HeaderBackButton} from "@react-navigation/elements";
 
 const ReadMilkScreen = () => {
     const [unitId, setUnitId] = useState("");
     const [milkData, setMilkData] = useState(null);
-
+    const navigation = useNavigation()
+    useLayoutEffect(()=>{
+        navigation.setOptions({
+            headerTitle: 'Fetch Milk Unit Data',
+            headerLeft: () => (
+                <HeaderBackButton label="Previous" onPress={() => navigation.goBack()} />
+            )
+        })
+    })
     const fetchMilkData = async () => {
         try {
         const response = await axios.get(`http://127.0.0.1:5000/milks/${unitId}`);

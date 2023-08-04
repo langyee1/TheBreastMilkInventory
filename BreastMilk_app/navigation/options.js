@@ -18,7 +18,7 @@ export const navOptions = (nav) => {
             />
         ),
         headerLeft: () => (
-            <Text style={{color:'red', fontSize: 30, padding: 5}}>Logo</Text>
+            <Text style={{color:'red', fontSize: 30, paddingLeft: 5}}>Logo</Text>
         )
     }
 }

@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
+import {HeaderBackButton} from "@react-navigation/elements";
+
 
 const RegisterMilkScreen = () => {
     const [timestamp, setTimestamp] = useState("");
@@ -9,6 +12,16 @@ const RegisterMilkScreen = () => {
     const [type, setType] = useState("");
     const [cad, setCad] = useState("");
     const [responseText, setResponseText] = useState("");
+
+    const navigation = useNavigation()
+    useLayoutEffect(()=>{
+        navigation.setOptions({
+            headerTitle: 'New Milk Unit',
+            headerLeft: () => (
+                <HeaderBackButton label="Previous" onPress={() => navigation.goBack()} />
+            )
+        })
+    })
 
     const handleRegisterMilk = () => {
         const newMilkUnit = {

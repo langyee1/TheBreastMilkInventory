@@ -12,9 +12,10 @@ const Stack = createStackNavigator();
 export const HomeStack = () =>  {
     const nav = useNavigation()
     return (
-        //{<Stack.Navigator screenOptions={()=>navOptions(nav)}>}
-        <Stack.Navigator style={{headerShown: false}} >
-            <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Navigator 
+            screenOptions={()=>navOptions(nav)}
+            >
+            <Stack.Screen name="Home" component={HomeScreen}  />
             <Stack.Screen name="Register milk unit" component={RegisterMilkScreen} />
             <Stack.Screen name="Read milk unit" component={ReadMilkScreen} />
             <Stack.Screen name="Modify milk unit" component={ModifyMilkScreen} />
