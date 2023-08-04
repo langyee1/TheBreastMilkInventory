@@ -10,15 +10,11 @@ export const navOptions = (nav) => {
             justifyContent: 'space-between', 
         },
         headerRight: () => (
-            <Ionicons
-                name = 'menu'
-                size= {32}
-                color = 'black'
-                onPress={()=>nav.toggleDrawer()}
+            <Ionicons name="menu" size={32} color="#2d2d2d" onPress={()=>nav.toggleDrawer()}
             />
         ),
-        headerLeft: () => (
-            <Text style={{color:'black', fontSize: 30, paddingLeft: 5}}>Logo</Text>
-        )
+        //headerLeft: () => (
+            //<Text style={{color:'black', fontSize: 32, paddingLeft: 5}}>Logo</Text>
+        //)
     }
 }

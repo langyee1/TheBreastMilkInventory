@@ -1,18 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
-
+import React from "react";
+import { Text, View, } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import TopBar from "../navigation/topBar";
 
 const AboutScreen = () => {
+    const navigation = useNavigation();
+
     return (
-        <View style={styles.screen}>
-            <Text>This is the about screen</Text>
+        <View>
+            <TopBar></TopBar>
+        <Text>This is the about screen</Text>
         </View>
     );
-}
-
-const styles = StyleSheet.create({
-    screen: {
-        padding:10,
-    }
-})
+    };
 
 export default AboutScreen;

@@ -12,7 +12,7 @@ const StatsScreen = () => {
         navigation.setOptions({
             headerTitle: 'Data Visualization',
             headerLeft: () => (
-                <HeaderBackButton label="Previous" onPress={() => navigation.goBack()} />
+                <HeaderBackButton label="chevron-back" tintColor="#2d2d2d"  onPress={() => navigation.goBack()} />
             )
         })
     })
