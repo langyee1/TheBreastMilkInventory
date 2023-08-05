@@ -23,10 +23,10 @@ const MilkList = () => {
         // Simulate loading more data
         setLoading(true);
         setTimeout(() => {
-          const newData = [...milkData, ...SeedData]; // Append the same data for demonstration
+            const newData = [...milkData, ...SeedData]; 
             setMilkData(newData);
             setLoading(false);
-        }, 1000); // Simulate an asynchronous API call
+        }, 1000); 
     };
 
     return (

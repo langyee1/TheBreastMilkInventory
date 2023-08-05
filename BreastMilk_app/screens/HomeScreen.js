@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import MilkList from "../components/milk-list";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
 const HomeScreen = () => {

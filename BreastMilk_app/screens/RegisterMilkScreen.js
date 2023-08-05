@@ -7,7 +7,6 @@ import {HeaderBackButton} from "@react-navigation/elements";
 
 
 const RegisterMilkScreen = () => {
-    const [timestamp, setTimestamp] = useState("");
     const [amount, setAmount] = useState("");
     const [container, setContainer] = useState("");
     const [type, setType] = useState("");
