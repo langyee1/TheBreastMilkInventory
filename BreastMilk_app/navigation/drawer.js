@@ -24,8 +24,8 @@ export const MyDrawer = () => {
                         </View>
                         <DrawerItemList {...props} 
                             drawerContentOptions={{
-                            activeTintColor: 'red', // Change this to the desired color for the selected item
-                            inactiveTintColor: 'purple', // Change this to the desired color for the inactive items
+                            activeTintColor: 'red', 
+                            inactiveTintColor: 'purple', 
                             }}
                         />
                         <DrawerItem

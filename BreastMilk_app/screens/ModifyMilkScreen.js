@@ -77,7 +77,6 @@ const ModifyMilkScreen = () => {
 
         {milkData && (
             <View>
-            {/* Display the form with default values */}
             <Text>Unit ID: {milkData.id}</Text>
             <Text>Timestamp: {milkData.timestamp}</Text>
             <TextInput

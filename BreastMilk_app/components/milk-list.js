@@ -20,7 +20,6 @@ const MilkList = () => {
         };
 
     const handleLoadMore = () => {
-        // Simulate loading more data
         setLoading(true);
         setTimeout(() => {
             const newData = [...milkData, ...SeedData]; 

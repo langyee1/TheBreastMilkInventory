@@ -10,7 +10,6 @@ const RegisterMilkScreen = () => {
     const [amount, setAmount] = useState("");
     const [container, setContainer] = useState("");
     const [type, setType] = useState("");
-    //const [cad, setCad] = useState("");
     const containerOptions = ["Countertop", "Refrigerator", "Freezer"];
     const [responseText, setResponseText] = useState("");
 
@@ -25,7 +24,7 @@ const RegisterMilkScreen = () => {
     })
 
     const handleRegisterMilk = () => {
-        const currentTimestamp = new Date().toISOString().slice(0, 19).replace("T", " ");
+        const currentTimestamp = new Date();
 
         let defaultCad = "";
         console.log(container)
