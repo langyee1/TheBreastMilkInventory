@@ -40,6 +40,27 @@ const ReadMilkScreen = () => {
         fetchMilkData();
     };
 
+    const calculateExpiration = () => {
+        if (!milkData || !milkData.timestamp || !milkData.container) return "N/A";
+
+        const timestamp = new Date(milkData.timestamp);
+        const now = new Date();
+
+        switch (milkData.container.toLowerCase()) {
+            case "freezer":
+                timestamp.setMonth(timestamp.getMonth() + 6);
+                return now > timestamp ? "Milk unit expired" : `${Math.ceil((timestamp - now) / (1000 * 60 * 60 * 24))} days left`;
+            case "countertop":
+                timestamp.setHours(timestamp.getHours() + 3);
+                return now > timestamp ? "Milk unit expired" : `${Math.ceil((timestamp - now) / (1000 * 60 * 60))} hours left`;
+            case "refrigerator":
+                timestamp.setHours(timestamp.getHours() + 48);
+                return now > timestamp ? "Milk unit expired" : `${Math.ceil((timestamp - now) / (1000 * 60 * 60))} hours left`;
+            default:
+                return "N/A";
+        }
+    };
+
     return (
         <View style={styles.screen}>
         <Text>This is the Read milk screen</Text>
@@ -59,7 +80,7 @@ const ReadMilkScreen = () => {
             <Text>Timestamp: {milkData.timestamp}</Text>
             <Text>Container: {milkData.container}</Text>
             <Text>Type: {milkData.type}</Text>
-            <Text>Expires: {milkData.cad}</Text>
+            <Text>Expires: {calculateExpiration()}</Text>
             </View>
         )}
         </View>
