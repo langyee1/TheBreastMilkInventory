@@ -1,0 +1,5 @@
+"#FFB067" orange
+"#FFED86" yellow
+"#C89DD8" lilac
+"#FEEBA0" light yellow
+"#0A4158" navy blue
