@@ -76,11 +76,11 @@ const ReadMilkScreen = () => {
 
         {milkData && (
             <View>
-            <Text>Unit ID: {milkData.id}</Text>
-            <Text>Timestamp: {milkData.timestamp}</Text>
-            <Text>Container: {milkData.container}</Text>
-            <Text>Type: {milkData.type}</Text>
-            <Text>Expires: {calculateExpiration()}</Text>
+            <Text style={styles.responseText}>Unit ID: {milkData.id}</Text>
+            <Text style={styles.responseText}>Timestamp: {milkData.timestamp}</Text>
+            <Text style={styles.responseText}>Container: {milkData.container}</Text>
+            <Text style={styles.responseText}>Type: {milkData.type}</Text>
+            <Text style={styles.responseText}>Expires: {calculateExpiration()}</Text>
             </View>
         )}
         </View>
@@ -109,6 +109,10 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: '#2d2d2d',
         textAlign: "center",
+    },
+    responseText: {
+        fontSize: 16,
+        fontWeight: "bold",
     },
 });
 

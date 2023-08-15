@@ -84,7 +84,7 @@ const RegisterMilkScreen = () => {
         <TouchableOpacity style={styles.button} onPress={handleRegisterMilk}>
             <Text style={styles.buttonText}>Register Milk Unit</Text>
         </TouchableOpacity>
-        {responseText !== "" && <Text style={styles.responseText}>{responseText}</Text>}
+        {responseText !== "" && <Text style={styles.responseText}>{responseText} , please proceed to tag your milk unit with this ID.</Text>}
         </View>
     );
 };
@@ -110,6 +110,11 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
         color: '#2d2d2d',
+        textAlign: "center",
+    },
+    responseText: {
+        fontSize: 20,
+        fontWeight: "bold",
         textAlign: "center",
     },
 });
