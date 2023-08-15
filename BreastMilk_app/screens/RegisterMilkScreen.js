@@ -44,8 +44,8 @@ const RegisterMilkScreen = () => {
             type: type,
             cad: defaultCad !== "" ? defaultCad : "", 
         };
-
-    axios.post("http://127.0.0.1:5000/milks", newMilkUnit)
+//"http://127.0.0.1:5000/milks"
+    axios.post("https://milkbuddy.onrender.com/milks", newMilkUnit)
         .then((response) => {
             setResponseText(`Server Response: ${response.data.message}`);
         })

@@ -7,7 +7,7 @@ import VideoPlayer from '../components/video-player';
 
 const OnboardingScreen = ({ onDone }) => {
     return (
-        <Swiper style={styles.wrapper} showsButtons={true}>
+        <Swiper style={styles.wrapper}  loop={false}>
             <View style={styles.slide}>
             {/*<Image source={require('./path_to_image1.png')} style={styles.image} />*/}
                 <Text>Page 1</Text>

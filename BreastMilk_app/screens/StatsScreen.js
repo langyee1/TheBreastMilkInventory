@@ -33,7 +33,7 @@ const StatsScreen = () => {
 
     const fetchMilkData = async () => {
         try {
-        const response = await axios.get("http://127.0.0.1:5000/milks");
+        const response = await axios.get("https://milkbuddy.onrender.com/milks");
         setMilkData(response.data);
         setLoading(false);
         } catch (error) {

@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
 const HomeScreen = () => {
     const navigation = useNavigation()
     return (
         <View style={styles.screen}>
-            <Text>This is the home screen</Text>
+            <Image source={require('../assets/Images/Jar_with_diamond_100x100.png')} style={styles.contentImage} />
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register milk unit')}>
                 <Text style={styles.buttonText}>Register Milk Unit</Text>
             </TouchableOpacity>

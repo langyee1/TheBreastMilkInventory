@@ -26,7 +26,7 @@ const ModifyMilkScreen = () => {
 
     const fetchMilkData = async () => {
         try {
-        const response = await axios.get(`http://127.0.0.1:5000/milks/${unitId}`);
+        const response = await axios.get(`https://milkbuddy.onrender.com/milks/${unitId}`);
         
         if (response.status === 200) {
             setMilkData(response.data);
@@ -50,7 +50,7 @@ const ModifyMilkScreen = () => {
 
     const handleRefreshData = async () => {
         try {
-        const response = await axios.put(`http://127.0.0.1:5000/milks/${unitId}`, formData);
+        const response = await axios.put(`https://milkbuddy.onrender.com/milks${unitId}`, formData);
 
         if (response.status === 200) {
             Alert.alert("Success", "Milk data updated successfully!");
