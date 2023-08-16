@@ -19,8 +19,8 @@ export const MyDrawer = () => {
                         <View
                             style={{justifyContent: 'center', alignItems: 'center'}}>
                                 <Image
-                                    style={{width:100, resizeMode: 'contain'}}
-                                    source={require("../assets/Images/Jar_with_diamond_100x100.png")}></Image>
+                                    style={{width:'100%', resizeMode: 'contain'}}
+                                    source={require("../assets/Images/Logo_Short.png")}></Image>
                         </View>
                         <DrawerItemList {...props} 
                             drawerContentOptions={{

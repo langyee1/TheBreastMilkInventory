@@ -6,7 +6,7 @@ const HomeScreen = () => {
     const navigation = useNavigation()
     return (
         <View style={styles.screen}>
-            <Image source={require('../assets/Images/Jar_with_diamond_100x100.png')} style={styles.contentImage} />
+            <Image source={require("../assets/Images/Logo_Short.png")} style={styles.contentImage} />
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register milk unit')}>
                 <Text style={styles.buttonText}>Register Milk Unit</Text>
             </TouchableOpacity>
@@ -27,10 +27,11 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center',  
+        backgroundColor: 'lightyellow',
     },
     button: {
-        backgroundColor:  "#FDDC57",
+        backgroundColor:  "#FFED86",
         borderRadius: 10,
         padding: 10,
         marginVertical: 5,
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#2d2d2d',
+        color: "#0A4158",
         textAlign: 'center',
     },
 });

@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         borderColor: "#C89DD8",  // lilac border
         borderWidth: 1,
         padding: 20,
-        backgroundColor: "#FFED86",  // yellow background
+        backgroundColor: "lightyellow",  
         borderRadius: 15,
     }
 });

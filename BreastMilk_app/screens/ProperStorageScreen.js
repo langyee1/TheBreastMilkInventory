@@ -8,19 +8,33 @@ const ProperStorageScreen = () => {
         <ScrollView style={styles.container}>
             <TopBar></TopBar>
             
-            <View style={styles.contentSection}>
-                <Image source={require('../assets/Images/Jar_with_diamond_100x100.png')} style={styles.contentImage} />
-                <Text style={styles.contentText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.</Text>
+            <View>
+                <Text style={styles.title}> {"\n\n"}Proper storage Indications and Hygiene{"\n\n"}</Text>
+                <Image source={require('../assets/Images/freezer-2.jpg')} style={styles.contentImage} resizeMode="contain"/>
+                <Text style={styles.contentText}>
+                    {"\n\n"}
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. 
+                    {"\n\n"}
+                    Commodo nulla facilisi nullam vehicula. Tincidunt praesent semper feugiat nibh sed pulvinar proin. Nibh tortor id aliquet lectus proin nibh nisl condimentum. Gravida neque convallis a cras semper auctor neque vitae. Euismod nisi porta lorem mollis aliquam ut porttitor leo a. Ornare arcu odio ut sem nulla pharetra diam sit. Erat imperdiet sed euismod nisi porta lorem. Orci sagittis eu volutpat odio facilisis mauris.
+                    {"\n\n"}
+                </Text>
             </View>
 
             <View style={[styles.contentSection, styles.reverseLayout]}>
-                <Image source={require('../assets/Images/Jar_with_diamond_100x100.png')} style={styles.contentImage} />
-                <Text style={styles.contentText}>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</Text>
+                <Image source={require('../assets/Images/bottles-1.jpg')} style={styles.contentImageSide}/>
+                <Text style={styles.contentText}>
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. 
+                    {"\n\n"}
+                    Donec et odio pellentesque diam. Faucibus et molestie ac feugiat sed lectus vestibulum.</Text>
             </View>
 
             <View style={styles.contentSection}>
-                <Image source={require('../assets/Images/Jar_with_diamond_100x100.png')} style={styles.contentImage} />
-                <Text style={styles.contentText}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
+                <Image source={require('../assets/Images/pumping-1.jpg')} style={styles.contentImageSide} />
+                <Text style={styles.contentText}>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    {"\n\n"}
+                    Turpis in eu mi bibendum. Risus nec feugiat in fermentum posuere urna nec tincidunt praesent. Tristique senectus et netus et malesuada. 
+                </Text>
             </View>
         </ScrollView>
     );
@@ -29,7 +43,7 @@ const ProperStorageScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FEEBA0',
+        backgroundColor: 'lightyellow',
     },
     contentSection: {
         flexDirection: 'row',
@@ -40,13 +54,24 @@ const styles = StyleSheet.create({
         flexDirection: 'row-reverse',
     },
     contentImage: {
-        width: 100,
-        height: 100,
-        marginRight: 16,
+        width: '90%', 
+        alignSelf: 'center',
+        height: undefined,
+        aspectRatio: 1, 
+    },
+    contentImageSide: {
+        width: '50%',
+        height: undefined,
+        aspectRatio: 1,
+    },
+    title: {
+        fontSize: 20,
+        textAlign: 'center',
     },
     contentText: {
         flex: 1,
         color: '#0A4158',
+        padding: 10,
     }
 });
 

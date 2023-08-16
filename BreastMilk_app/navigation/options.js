@@ -12,8 +12,5 @@ export const navOptions = (nav) => {
             <Ionicons name="menu" size={32} color="#2d2d2d" onPress={()=>nav.toggleDrawer()}
             />
         ),
-        //headerLeft: () => (
-            //<Text style={{color:'black', fontSize: 32, paddingLeft: 5}}>Logo</Text>
-        //)
     }
 }

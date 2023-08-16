@@ -1,30 +1,30 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import { View, Text, Image, StyleSheet, Button, Dimensions, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import VideoPlayer from '../components/video-player';
 
 //https://youtube.com/shorts/iqgtGOrbXrM?feature=share
-
+const { width, height } = Dimensions.get('window');
 const OnboardingScreen = ({ onDone }) => {
     return (
         <Swiper style={styles.wrapper}  loop={false}>
             <View style={styles.slide}>
-            {/*<Image source={require('./path_to_image1.png')} style={styles.image} />*/}
-                <Text>Page 1</Text>
+                <Image source={require("../assets/Images/Swipe-1.png")} style={styles.image} />
             </View>
             <View style={styles.slide}>
-                <Text>Page 2</Text>
+                <Image source={require("../assets/Images/Swipe-2.png")} style={styles.image} />
             </View>
             <View style={styles.slide}>
-                <VideoPlayer videoSource={{uri:'https://www.youtube.com/embed/iqgtGOrbXrM'}} />
-                <Text>Page 3</Text>
+                {/*<VideoPlayer videoSource={{uri:'https://www.youtube.com/embed/iqgtGOrbXrM'}} />*/}
+                <Image source={require("../assets/Images/Swipe-3.png")} style={styles.image} />
             </View>
             <View style={styles.slide}>
-                <Text>Page 4</Text>
-            </View>
-            <View style={styles.slide}>
-                <Text style={{ color: 'black' }}>Page 5</Text>
-                <Button title="Get Started!" onPress={onDone}  />
+                <Image source={require("../assets/Images/Swipe-4.png")} style={styles.image} />
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.button} onPress={onDone}>
+                        <Text style={styles.buttonText}>Get Started!</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </Swiper>
     );
@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
     },
     image: {
-        width: 200,
-        height: 200,
-        marginBottom: 20,
+        width: width,
+        height: height,
+        resizeMode: 'cover', // This will make sure the image covers the whole screen
     },
     backgroundVideo: {
         position: 'absolute',
@@ -52,6 +52,27 @@ const styles = StyleSheet.create({
         left: 0,
         bottom: 0,
         right: 0,
+    },
+    buttonContainer: {
+        position: 'absolute', 
+        top: 0,
+        bottom: 0, 
+        left: 0, 
+        right: 0, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+    },
+    button: {
+        backgroundColor: '#FFED86',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        borderRadius: 20, 
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: '#0A4158',
+        fontSize: 16,
+        fontFamily: 'Verdana', 
     },
 });
 

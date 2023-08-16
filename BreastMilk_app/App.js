@@ -17,9 +17,9 @@ export default function App() {
     return <OnboardingScreen onDone={handleOnboardingComplete} />;
   }
   return (
-    <NavigationContainer styles = {styles.container}>
-      <MyDrawer></MyDrawer>
-    </NavigationContainer>
+      <NavigationContainer styles = {styles.container}>
+        <MyDrawer></MyDrawer>
+      </NavigationContainer>
   );
 }
 
