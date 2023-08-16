@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     image: {
         width: width,
         height: height,
-        resizeMode: 'cover', // This will make sure the image covers the whole screen
+        resizeMode: 'cover', 
     },
     backgroundVideo: {
         position: 'absolute',

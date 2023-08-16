@@ -19,10 +19,10 @@ const TopBar = () => {
         <SafeAreaView edges={['top']} style={styles.safeAreaView}>
         <View style={styles.container}>
             <TouchableOpacity onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={32} color="#2d2d2d" />
+            <Ionicons name="chevron-back" size={32} color="#0A4158" />
             </TouchableOpacity>
             <TouchableOpacity onPress={handleToggleDrawer}>
-            <Ionicons name="menu" size={32} color="#2d2d2d" />
+            <Ionicons name="menu" size={32} color="#0A4158" />
             </TouchableOpacity>
         </View>
         </SafeAreaView>
