@@ -4,6 +4,7 @@ import axios from "axios";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import {HeaderBackButton} from "@react-navigation/elements";
+import { Picker } from "@react-native-picker/picker";
 
 const ModifyMilkScreen = () => {
     const [unitId, setUnitId] = useState("");
@@ -51,9 +52,31 @@ const ModifyMilkScreen = () => {
         fetchMilkData();
     };
 
+    const handleContainerChange = (containerType) => {
+            let cad = 0;
+            if (containerType === "Freezer") {
+            cad = 180;
+            } else if (containerType === "Refrigerator") {
+            cad = 2;
+            }
+        
+            setFormData({
+            ...formData,
+            container: containerType,
+            cad: cad.toString(),
+            });
+        };
+
     const handleRefreshData = async () => {
         try {
-        const response = await axios.put(`https://milkbuddy.onrender.com/milks${unitId}`, formData);
+        //const response = await axios.put(`https://milkbuddy.onrender.com/milks${unitId}`, formData);
+
+        const updatedMilkData = { ...milkData, ...formData };
+
+        const response = await axios.put(
+            `https://milkbuddy.onrender.com/milks/${unitId}`,
+            updatedMilkData
+        );
 
         if (response.status === 200) {
             Alert.alert("Success", "Milk data updated successfully!");
@@ -81,24 +104,25 @@ const ModifyMilkScreen = () => {
             <View>
             <Text style={styles.output}>Unit ID: {milkData.id}</Text>
             <Text style={styles.output}>Timestamp: {milkData.timestamp}</Text>
-            <TextInput
-                style={styles.input}
-                value={formData.container}
-                onChangeText={(text) => setFormData({ ...formData, container: text })}
-                placeholder="Enter Container"
-            />
+            <View style={styles.pickerContainer}>
+                <Picker
+                    selectedValue={formData.container}
+                    onValueChange={(value) => handleContainerChange(value)}
+                    style={styles.picker}
+                >
+                    <Picker.Item label="Select Container" value="" />
+                    <Picker.Item label="Freezer" value="Freezer" />
+                    <Picker.Item label="Countertop" value="Countertop" />
+                    <Picker.Item label="Refrigerator" value="Refrigerator" />
+                </Picker>
+            </View>
             <TextInput
                 style={styles.input}
                 value={formData.type}
                 onChangeText={(text) => setFormData({ ...formData, type: text })}
                 placeholder="Enter Type"
             />
-            <TextInput
-                style={styles.input}
-                value={formData.cad}
-                onChangeText={(text) => setFormData({ ...formData, cad: text })}
-                placeholder="Enter Cad"
-            />
+
             <TouchableOpacity style={styles.button} onPress={handleRefreshData}>
                 <Text style={styles.buttonText}>Refresh Data</Text>
             </TouchableOpacity>

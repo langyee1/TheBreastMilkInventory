@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
 
-const LoginScreen = () => {
+const LoginScreen = ({onDone}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSignIn = () => {
-        //  authenticate user
         if (username === '' || password === '') {
             Alert.alert('Please enter both username and password');
         } else {
             Alert.alert(`Logged in as ${username}`);
+            onDone(); 
         }
     };
 
