@@ -15,7 +15,16 @@ export const HomeStack = () =>  {
         <Stack.Navigator 
             screenOptions={()=>navOptions(nav)}
             >
-            <Stack.Screen name="Home" component={HomeScreen}  />
+            <Stack.Screen 
+                name="Home" 
+                component={HomeScreen}
+                options={{
+                    headerTitleStyle: {
+                        fontFamily: 'Verdana',
+                        color: '#0A4158',
+                    },
+                }}
+            />
             <Stack.Screen name="Register milk unit" component={RegisterMilkScreen} />
             <Stack.Screen name="Read milk unit" component={ReadMilkScreen} />
             <Stack.Screen name="Modify milk unit" component={ModifyMilkScreen} />

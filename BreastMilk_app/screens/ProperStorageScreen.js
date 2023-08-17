@@ -10,7 +10,7 @@ const ProperStorageScreen = () => {
             
             <View>
                 <Text style={styles.title}> {"\n\n"}Proper storage Indications and Hygiene{"\n\n"}</Text>
-                <Image source={require('../assets/Images/freezer-2.jpg')} style={styles.contentImage} resizeMode="contain"/>
+                <Image source={require('../assets/Images/pumping-1.jpg')} style={styles.contentImage} resizeMode="contain"/>
                 <Text style={styles.contentText}>
                     {"\n\n"}
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. 
@@ -29,7 +29,7 @@ const ProperStorageScreen = () => {
             </View>
 
             <View style={styles.contentSection}>
-                <Image source={require('../assets/Images/pumping-1.jpg')} style={styles.contentImageSide} />
+                <Image source={require('../assets/Images/freezer-2.jpg')} style={styles.contentImageSide} />
                 <Text style={styles.contentText}>
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     {"\n\n"}
@@ -67,11 +67,14 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         textAlign: 'center',
+        color: '#0A4158',
+        fontFamily: 'Verdana',
     },
     contentText: {
         flex: 1,
         color: '#0A4158',
-        padding: 10,
+        padding: 16,
+        fontFamily: 'Verdana',
     }
 });
 

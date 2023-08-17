@@ -12,8 +12,11 @@ const ReadMilkScreen = () => {
     useLayoutEffect(()=>{
         navigation.setOptions({
             headerTitle: 'Fetch Milk Unit Data',
+            headerTitleStyle: {
+                fontFamily: 'Verdana',
+            },
             headerLeft: () => (
-                <HeaderBackButton label="chevron-back" tintColor="#2d2d2d"  onPress={() => navigation.goBack()} />
+                <HeaderBackButton label="chevron-back" tintColor="#0A4158"  onPress={() => navigation.goBack()} />
             )
         })
     })
@@ -63,7 +66,6 @@ const ReadMilkScreen = () => {
 
     return (
         <View style={styles.screen}>
-        <Text>This is the Read milk screen</Text>
         <TextInput
             style={styles.input}
             value={unitId}
@@ -88,32 +90,36 @@ const ReadMilkScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    screen: {
-        padding: 20,
-    },
-    input: {
-        height: 40,
-        borderColor: "gray",
-        borderWidth: 1,
-        marginBottom: 10,
-        padding: 10,
-    },
-    button: {
-        backgroundColor: "#FDDC57",
-        borderRadius: 10,
-        padding: 10,
-        marginVertical: 10,
-    },
-    buttonText: {
-        fontSize: 16,
-        fontWeight: "bold",
-        color: '#2d2d2d',
-        textAlign: "center",
-    },
-    responseText: {
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-});
+        screen: {
+            padding: 20,
+            backgroundColor: "lightyellow",
+        },
+        input: {
+            borderWidth: 1,
+            borderColor: "#C89DD8",
+            borderRadius: 5,
+            padding: 10,
+            marginBottom: 10,
+            fontFamily: 'Verdana',
+            fontSize: 16,
+        },
+        button: {
+            backgroundColor: "#FFED86",
+            borderRadius: 10,
+            padding: 10,
+            marginVertical: 10,
+        },
+        buttonText: {
+            fontSize: 16,
+            fontFamily: "Verdana",
+            color: "#0A4158",
+            textAlign: "center",
+        },
+        responseText: {
+            fontSize: 16,
+            fontFamily: "Verdana",
+            color: "#0A4158",
+        },
+    });
 
 export default ReadMilkScreen;

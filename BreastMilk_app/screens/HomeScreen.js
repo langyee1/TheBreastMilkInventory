@@ -10,21 +10,21 @@ const HomeScreen = () => {
         <View style={styles.buttonContainer}>
             <View style={styles.buttonRow}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register milk unit')}>
-                    <Image source={require("../assets/Images/Register.png")} style={styles.buttonLogo} />
+                    <Image source={require("../assets/Images/RegisterLogo.png")} style={styles.buttonLogo} />
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Stats')}>
-                    <Image source={require("../assets/Images/Stats.png")} style={styles.buttonLogo} />
+                    <Image source={require("../assets/Images/StatsLogo.png")} style={styles.buttonLogo} />
                     <Text style={styles.buttonText}>Stats</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.buttonRow}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Read milk unit')}>
-                    <Image source={require("../assets/Images/Read.png")} style={styles.buttonLogo} />
+                    <Image source={require("../assets/Images/ReadLogo.png")} style={styles.buttonLogo} />
                     <Text style={styles.buttonText}>Read</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Modify milk unit')}>
-                    <Image source={require("../assets/Images/Modify.png")} style={styles.buttonLogo} />
+                    <Image source={require("../assets/Images/ModifyLogo.png")} style={styles.buttonLogo} />
                     <Text style={styles.buttonText}>Modify</Text>
                 </TouchableOpacity>
             </View>

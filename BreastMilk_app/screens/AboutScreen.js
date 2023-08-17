@@ -46,21 +46,22 @@ const styles = StyleSheet.create({
     biopic: {
         width: 150,
         height: 150,
-        borderRadius: 75,  // for circular image
-        backgroundColor: "#FFB067",  // orange background as placeholder
+        borderRadius: 75,  
+        backgroundColor: "#FFB067",  
         marginBottom: 20,
     },
     bioText: {
-        color: "#0A4158",  // navy blue text
+        color: "#0A4158",  
         fontSize: 16,
         textAlign: 'center',
         lineHeight: 24,
         paddingHorizontal: 20, 
-        borderColor: "#C89DD8",  // lilac border
+        borderColor: "#C89DD8",  
         borderWidth: 1,
         padding: 20,
         backgroundColor: "lightyellow",  
         borderRadius: 15,
+        fontFamily: 'Verdana',
     }
 });
 

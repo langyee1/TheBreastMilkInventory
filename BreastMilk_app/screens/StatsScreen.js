@@ -44,11 +44,14 @@ const StatsScreen = () => {
 
     useEffect(() => {
         navigation.setOptions({
-        headerTitle: "Data Visualization",
+        headerTitle: "Stats and Projections",
+        headerTitleStyle: {
+            fontFamily: 'Verdana',
+        },
         headerLeft: () => (
             <HeaderBackButton
             label="chevron-back"
-            tintColor="#2d2d2d"
+            tintColor="#0A4158"
             onPress={() => navigation.goBack()}
             />
         ),
@@ -99,12 +102,12 @@ const StatsScreen = () => {
     };
     return (
         <View style={styles.screen}>
-        <Text>This is the stats screen</Text>
-        <Text>Enter baby's age (in months):</Text>
         <TextInput
+            style={styles.input}
             value={babyAge}
             onChangeText={(text) => setBabyAge(text)}
             keyboardType="numeric"
+            placeholder="Enter baby's age in months"
             />
         <TouchableOpacity onPress={handleCalculateDays}>
             <View style={styles.button}>
@@ -138,12 +141,13 @@ const StatsScreen = () => {
             xAxisLabel="months to expire"
             verticalLabelRotation={30}
             chartConfig={{
-                backgroundGradientFrom: "#FDDC57",
-                backgroundGradientTo: "#FDDC57",
-                color: (opacity = 1) => "#2d2d2d", 
-                labelColor: (opacity = 1) => "#2d2d2d", 
+                backgroundGradientFrom: "#C89DD8",
+                backgroundGradientTo: "#C89DD8",
+                color: (opacity = 1) => "#0A4158", 
+                labelColor: (opacity = 1) => "#0A4158", 
                 propsForBackgroundLines: {
-                    strokeWidth: 0, 
+                    strokeWidth: 0,
+                    stroke: "#0A4158",
                 },
             }}
             bezier
@@ -155,6 +159,21 @@ const StatsScreen = () => {
 const styles = StyleSheet.create({
     screen: {
         padding: 10,
+        backgroundColor: 'lightyellow',
+    },
+    prompt: {
+        fontSize: 16,
+        fontFamily: 'Verdana',
+        color: "#0A4158",
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#C89DD8",
+        borderRadius: 5,
+        padding: 10,
+        marginBottom: 10,
+        fontFamily: 'Verdana',
+        fontSize: 16,
     },
     loadingContainer: {
         flex: 1,
@@ -162,15 +181,16 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     button: {
-        backgroundColor: "#FDDC57",
+        backgroundColor: "#FFED86",
         borderRadius: 10,
         padding: 10,
         marginVertical: 10,
+        alignItems: 'center',
     },
     buttonText: {
         fontSize: 16,
-        fontWeight: "bold",
-        color: "#2d2d2d",
+        fontFamily: 'Verdana',
+        color: "#0A4158",
         textAlign: "center",
     },
     calculatedDaysContainer: {

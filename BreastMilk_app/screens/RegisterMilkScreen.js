@@ -17,8 +17,11 @@ const RegisterMilkScreen = () => {
     useLayoutEffect(()=>{
         navigation.setOptions({
             headerTitle: 'New Milk Unit',
+            headerTitleStyle: {
+                fontFamily: 'Verdana',
+            },
             headerLeft: () => (
-                <HeaderBackButton label="chevron-back" tintColor="#2d2d2d"  onPress={() => navigation.goBack()} />
+                <HeaderBackButton label="chevron-back" tintColor="#0A4158"  onPress={() => navigation.goBack()} />
             )
         })
     })
@@ -47,7 +50,7 @@ const RegisterMilkScreen = () => {
 //"http://127.0.0.1:5000/milks"
     axios.post("https://milkbuddy.onrender.com/milks", newMilkUnit)
         .then((response) => {
-            setResponseText(`Server Response: ${response.data.message}`);
+            setResponseText(`${response.data.message}`);
         })
         .catch((error) => {
             setResponseText(`Error creating milk unit: ${error.message}`);
@@ -56,7 +59,6 @@ const RegisterMilkScreen = () => {
 
     return (
         <View style={styles.screen}>
-        <Text>This is the register milk screen</Text>
         <TextInput
             style={styles.input}
             placeholder="Amount"
@@ -92,30 +94,41 @@ const RegisterMilkScreen = () => {
 const styles = StyleSheet.create({
     screen: {
         padding: 20,
+        backgroundColor: 'lightyellow',
     },
     input: {
         borderWidth: 1,
-        borderColor: "#ccc",
+        borderColor: "#C89DD8",
         borderRadius: 5,
         padding: 10,
         marginBottom: 10,
+        fontFamily: 'Verdana',
+        fontSize: 16,
     },
     button: {
-        backgroundColor: "#FDDC57",
+        backgroundColor: "#FFED86",
         borderRadius: 10,
         padding: 10,
         marginVertical: 10,
     },
     buttonText: {
         fontSize: 16,
-        fontWeight: "bold",
-        color: '#2d2d2d',
+        color: '#0A4158',
         textAlign: "center",
+        fontFamily: 'Verdana',
     },
     responseText: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: "bold",
         textAlign: "center",
+        fontFamily: 'Verdana',
+        color: '#0A4158',
+    },
+    pickerLabel: {
+        fontFamily: 'Verdana',
+        fontSize: 16,
+    },
+    pickerContainer: {
     },
 });
 
